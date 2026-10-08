@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Portfólio profissional de Seu Nome — Desenvolvedor Web."
+  >
+
+  <title>Seu Nome | Desenvolvedor Web</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#7c3aed",
+            secondary: "#a855f7"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-slate-950 text-white antialiased">
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header
+    id="header"
+    class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-lg"
+  >
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+
+      <a
+        href="#inicio"
+        class="text-xl font-bold tracking-tight"
+      >
+        Seu<span class="text-violet-400">Nome</span>.
+      </a>
+
+      <!-- Menu desktop -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-8 text-sm text-slate-300">
+          <li>
+            <a class="transition hover:text-white" href="#sobre">
+              Sobre
+            </a>
+          </li>
+
+          <li>
+            <a class="transition hover:text-white" href="#habilidades">
+              Habilidades
+            </a>
+          </li>
+
+          <li>
+            <a class="transition hover:text-white" href="#projetos">
+              Projetos
+            </a>
+          </li>
+
+          <li>
+            <a class="transition hover:text-white" href="#experiencia">
+              Experiência
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#contato"
+              class="rounded-lg bg-violet-600 px-4 py-2 font-semibold text-white transition hover:bg-violet-500"
+            >
+              Contato
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Botão mobile -->
+      <button
+        id="menuButton"
+        type="button"
+        aria-label="Abrir menu"
+        class="text-2xl text-white md:hidden"
+      >
+        ☰
+      </button>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav
+      id="mobileMenu"
+      class="hidden border-t border-white/10 bg-slate-950 px-6 py-5 md:hidden"
+    >
+      <ul class="flex flex-col gap-5 text-sm text-slate-300">
+
+        <li>
+          <a href="#sobre" class="mobile-link block">
+            Sobre
+          </a>
+        </li>
+
+        <li>
+          <a href="#habilidades" class="mobile-link block">
+            Habilidades
+          </a>
+        </li>
+
+        <li>
+          <a href="#projetos" class="mobile-link block">
+            Projetos
+          </a>
+        </li>
+
+        <li>
+          <a href="#experiencia" class="mobile-link block">
+            Experiência
+          </a>
+        </li>
+
+        <li>
+          <a href="#contato" class="mobile-link block">
+            Contato
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section
+      id="inicio"
+      class="relative flex min-h-screen items-center overflow-hidden pt-20"
+    >
+
+      <!-- Background decorativo -->
+      <div
+        class="absolute -right-40 top-20 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl"
+      ></div>
+
+      <div
+        class="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-fuchsia-600/10 blur-3xl"
+      ></div>
+
+      <div
+        class="relative mx-auto w-full max-w-7xl px-6 py-24"
+      >
+
+        <div class="max-w-4xl">
+
+          <p
+            class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-violet-400"
+          >
+            Olá, eu sou
+          </p>
+
+          <h1
+            class="text-5xl font-black leading-none tracking-tight sm:text-7xl lg:text-8xl"
+          >
+            Seu
+            <span
+              class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"
+            >
+              Nome.
+            </span>
+          </h1>
+
+          <h2
+            class="mt-6 text-2xl font-semibold text-slate-300 sm:text-3xl"
+          >
+            Desenvolvedor Web & Criador de Experiências Digitais
+          </h2>
+
+          <p
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-400"
+          >
+            Desenvolvo sites, aplicações web e experiências digitais
+            modernas, responsivas e focadas em resultados.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+
+            <a
+              href="#projetos"
+              class="rounded-xl bg-violet-600 px-6 py-3 font-semibold shadow-lg shadow-violet-600/20 transition hover:-translate-y-1 hover:bg-violet-500"
+            >
+              Ver projetos
+            </a>
+
+            <a
+              href="#contato"
+              class="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold transition hover:-translate-y-1 hover:bg-white/10"
+            >
+              Entre em contato
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         SOBRE
+    ========================== -->
+
+    <section id="sobre" class="border-t border-white/5 py-24">
+
+      <div class="mx-auto max-w-7xl px-6">
+
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+
+          <div class="reveal">
+
+            <p
+              class="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400"
+            >
+              01 — Sobre
+            </p>
+
+            <h2
+              class="text-4xl font-bold tracking-tight sm:text-5xl"
+            >
+              Transformando ideias em produtos digitais.
+            </h2>
+
+          </div>
+
+          <div class="space-y-5 text-slate-400">
+
+            <p>
+              Sou desenvolvedor apaixonado por tecnologia, design e
+              resolução de problemas. Trabalho na criação de experiências
+              digitais que combinam estética, usabilidade e performance.
+            </p>
+
+            <p>
+              Meu foco é transformar necessidades reais em soluções
+              simples, eficientes e fáceis de utilizar.
+            </p>
+
+            <p>
+              Tenho experiência trabalhando em projetos desde landing
+              pages até aplicações web completas.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Estatísticas -->
+
+        <div
+          class="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4"
+        >
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/5 p-6"
+          >
+            <strong class="text-3xl font-bold text-white">
+              5+
+            </strong>
+
+            <p class="mt-2 text-sm text-slate-400">
+              Anos de experiência
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/5 p-6"
+          >
+            <strong class="text-3xl font-bold text-white">
+              40+
+            </strong>
+
+            <p class="mt-2 text-sm text-slate-400">
+              Projetos realizados
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/5 p-6"
+          >
+            <strong class="text-3xl font-bold text-white">
+              20+
+            </strong>
+
+            <p class="mt-2 text-sm text-slate-400">
+              Clientes
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/5 p-6"
+          >
+            <strong class="text-3xl font-bold text-white">
+              100%
+            </strong>
+
+            <p class="mt-2 text-sm text-slate-400">
+              Comprometimento
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         HABILIDADES
+    ========================== -->
+
+    <section
+      id="habilidades"
+      class="border-y border-white/5 bg-slate-900/50 py-24"
+    >
+
+      <div class="mx-auto max-w-7xl px-6">
+
+        <div class="mb-14">
+
+          <p
+            class="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400"
+          >
+            02 — Habilidades
+          </p>
+
+          <h2 class="text-4xl font-bold sm:text-5xl">
+            O que eu faço
+          </h2>
+
+          <p class="mt-4 max-w-2xl text-slate-400">
+            Tecnologias e áreas nas quais atuo para criar soluções
+            digitais completas.
+          </p>
+
+        </div>
+
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Card -->
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              &lt;/&gt;
+            </div>
+
+            <h3 class="text-xl font-bold">
+              Desenvolvimento Web
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Criação de sites e aplicações web modernas, rápidas
+              e responsivas.
+            </p>
+
+          </article>
+
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              ◆
+            </div>
+
+            <h3 class="text-xl font-bold">
+              UI / UX
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Interfaces intuitivas e experiências digitais centradas
+              nas necessidades dos usuários.
+            </p>
+
+          </article>
+
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              JS
+            </div>
+
+            <h3 class="text-xl font-bold">
+              JavaScript
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Desenvolvimento de funcionalidades e interações
+              utilizando JavaScript moderno.
+            </p>
+
+          </article>
+
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              API
+            </div>
+
+            <h3 class="text-xl font-bold">
+              APIs & Integrações
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Integração entre aplicações, APIs externas e serviços
+              digitais.
+            </p>
+
+          </article>
+
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              DB
+            </div>
+
+            <h3 class="text-xl font-bold">
+              Banco de Dados
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Estruturação e gerenciamento de dados para aplicações
+              digitais.
+            </p>
+
+          </article>
+
+
+          <article
+            class="group rounded-2xl border border-white/10 bg-slate-950 p-7 transition duration-300 hover:-translate-y-2 hover:border-violet-500/50"
+          >
+
+            <div
+              class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400"
+            >
+              ⚡
+            </div>
+
+            <h3 class="text-xl font-bold">
+              Performance
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Otimização de aplicações para melhorar velocidade,
+              acessibilidade e experiência.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         PROJETOS
+    ========================== -->
+
+    <section id="projetos" class="py-24">
+
+      <div class="mx-auto max-w-7xl px-6">
+
+        <div class="mb-14">
+
+          <p
+            class="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400"
+          >
+            03 — Projetos
+          </p>
+
+          <h2 class="text-4xl font-bold sm:text-5xl">
+            Trabalhos selecionados
+          </h2>
+
+          <p class="mt-4 max-w-2xl text-slate-400">
+            Alguns projetos que representam minhas habilidades
+            e experiência profissional.
+          </p>
+
+        </div>
+
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+
+          <!-- Projeto 01 -->
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition hover:-translate-y-2"
+          >
+
+            <div
+              class="flex h-64 items-center justify-center bg-gradient-to-br from-violet-900 to-slate-900"
+            >
+              <span
+                class="text-7xl font-black text-white/10 transition group-hover:text-white/20"
+              >
+                01
+              </span>
+            </div>
+
+            <div class="p-7">
+
+              <h3 class="text-2xl font-bold">
+                Dashboard Analytics
+              </h3>
+
+              <p class="mt-3 text-slate-400">
+                Dashboard moderno para visualização de métricas,
+                indicadores e informações de negócio.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  HTML
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  Tailwind
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  JavaScript
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="mt-6 inline-block font-semibold text-violet-400 hover:text-violet-300"
+              >
+                Ver projeto →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Projeto 02 -->
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition hover:-translate-y-2"
+          >
+
+            <div
+              class="flex h-64 items-center justify-center bg-gradient-to-br from-fuchsia-900 to-slate-900"
+            >
+              <span
+                class="text-7xl font-black text-white/10 transition group-hover:text-white/20"
+              >
+                02
+              </span>
+            </div>
+
+            <div class="p-7">
+
+              <h3 class="text-2xl font-bold">
+                Landing Page
+              </h3>
+
+              <p class="mt-3 text-slate-400">
+                Landing page de alta conversão para apresentação
+                de produto e geração de leads.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  HTML
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  Tailwind
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  JavaScript
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="mt-6 inline-block font-semibold text-violet-400 hover:text-violet-300"
+              >
+                Ver projeto →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Projeto 03 -->
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition hover:-translate-y-2"
+          >
+
+            <div
+              class="flex h-64 items-center justify-center bg-gradient-to-br from-blue-900 to-slate-900"
+            >
+              <span
+                class="text-7xl font-black text-white/10 transition group-hover:text-white/20"
+              >
+                03
+              </span>
+            </div>
+
+            <div class="p-7">
+
+              <h3 class="text-2xl font-bold">
+                E-commerce
+              </h3>
+
+              <p class="mt-3 text-slate-400">
+                Interface de loja virtual com catálogo de produtos
+                e experiência responsiva.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  Frontend
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  API
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  JavaScript
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="mt-6 inline-block font-semibold text-violet-400 hover:text-violet-300"
+              >
+                Ver projeto →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Projeto 04 -->
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition hover:-translate-y-2"
+          >
+
+            <div
+              class="flex h-64 items-center justify-center bg-gradient-to-br from-emerald-900 to-slate-900"
+            >
+              <span
+                class="text-7xl font-black text-white/10 transition group-hover:text-white/20"
+              >
+                04
+              </span>
+            </div>
+
+            <div class="p-7">
+
+              <h3 class="text-2xl font-bold">
+                Sistema Web
+              </h3>
+
+              <p class="mt-3 text-slate-400">
+                Sistema web desenvolvido para automatizar processos
+                e centralizar informações.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  Web App
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  API
+                </span>
+
+                <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  Database
+                </span>
+
+              </div>
+
+              <a
+                href="#"
+                class="mt-6 inline-block font-semibold text-violet-400 hover:text-violet-300"
+              >
+                Ver projeto →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         EXPERIÊNCIA
+    ========================== -->
+
+    <section
+      id="experiencia"
+      class="border-y border-white/5 bg-slate-900/50 py-24"
+    >
+
+      <div class="mx-auto max-w-5xl px-6">
+
+        <div class="mb-14">
+
+          <p
+            class="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400"
+          >
+            04 — Experiência
+          </p>
+
+          <h2 class="text-4xl font-bold sm:text-5xl">
+            Minha trajetória
+          </h2>
+
+        </div>
+
+
+        <div class="relative border-l border-white/10">
+
+          <!-- Experiência -->
+
+          <article class="relative pb-12 pl-8">
+
+            <span
+              class="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-violet-500 ring-4 ring-violet-500/10"
+            ></span>
+
+            <p class="text-sm font-semibold text-violet-400">
+              2024 — Atualmente
+            </p>
+
+            <h3 class="mt-2 text-xl font-bold">
+              Desenvolvedor Full Stack
+            </h3>
+
+            <p class="mt-1 text-sm text-slate-500">
+              Empresa / Projeto
+            </p>
+
+            <p class="mt-4 max-w-2xl text-slate-400">
+              Desenvolvimento de aplicações web, APIs e soluções
+              digitais para diferentes necessidades de negócio.
+            </p>
+
+          </article>
+
+
+          <article class="relative pb-12 pl-8">
+
+            <span
+              class="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-violet-500 ring-4 ring-violet-500/10"
+            ></span>
+
+            <p class="text-sm font-semibold text-violet-400">
+              2022 — 2024
+            </p>
+
+            <h3 class="mt-2 text-xl font-bold">
+              Desenvolvedor Front-end
+            </h3>
+
+            <p class="mt-1 text-sm text-slate-500">
+              Empresa / Projeto
+            </p>
+
+            <p class="mt-4 max-w-2xl text-slate-400">
+              Desenvolvimento de interfaces responsivas e criação
+              de experiências digitais focadas no usuário.
+            </p>
+
+          </article>
+
+
+          <article class="relative pl-8">
+
+            <span
+              class="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-violet-500 ring-4 ring-violet-500/10"
+            ></span>
+
+            <p class="text-sm font-semibold text-violet-400">
+              2020 — 2022
+            </p>
+
+            <h3 class="mt-2 text-xl font-bold">
+              Desenvolvedor Web
+            </h3>
+
+            <p class="mt-1 text-sm text-slate-500">
+              Empresa / Projeto
+            </p>
+
+            <p class="mt-4 max-w-2xl text-slate-400">
+              Criação e manutenção de sites, sistemas internos e
+              soluções web personalizadas.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================== -->
+
+    <section id="contato" class="py-24">
+
+      <div class="mx-auto max-w-5xl px-6">
+
+        <div
+          class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-violet-950/60 to-slate-900 p-10 text-center sm:p-20"
+        >
+
+          <div
+            class="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl"
+          ></div>
+
+          <div class="relative">
+
+            <p
+              class="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400"
+            >
+              05 — Contato
+            </p>
+
+            <h2
+              class="text-4xl font-black tracking-tight sm:text-5xl"
+            >
+              Vamos trabalhar juntos?
+            </h2>
+
+            <p
+              class="mx-auto mt-5 max-w-xl text-slate-400"
+            >
+              Tem um projeto em mente ou uma oportunidade profissional?
+              Vamos conversar e transformar sua ideia em realidade.
+            </p>
+
+            <a
+              href="mailto:seuemail@email.com"
+              class="mt-8 inline-flex rounded-xl bg-violet-600 px-7 py-3 font-semibold shadow-lg shadow-violet-600/20 transition hover:-translate-y-1 hover:bg-violet-500"
+            >
+              Enviar mensagem
+            </a>
+
+            <p class="mt-6 text-sm text-slate-500">
+              seuemail@email.com
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="border-t border-white/10 py-8">
+
+    <div
+      class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 text-sm text-slate-500 sm:flex-row"
+    >
+
+      <p>
+        © <span id="year"></span> Seu Nome.
+        Todos os direitos reservados.
+      </p>
+
+      <div class="flex gap-5">
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition hover:text-white"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition hover:text-white"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition hover:text-white"
+        >
+          Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    // =========================
+    // MENU MOBILE
+    // =========================
+
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuButton.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+      const isOpen = !mobileMenu.classList.contains("hidden");
+
+      menuButton.textContent = isOpen ? "✕" : "☰";
+
+    });
+
+
+    // =========================
+    // FECHAR MENU AO CLICAR
+    // =========================
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+        menuButton.textContent = "☰";
+
+      });
+
+    });
+
+
+    // =========================
+    // ANO AUTOMÁTICO
+    // =========================
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // =========================
+    // SCROLL SUAVE
+    // =========================
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+      link.addEventListener("click", function (event) {
+
+        const targetId = this.getAttribute("href");
+
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      });
+
+    });
+
+
+    // =========================
+    // HEADER AO ROLAR
+    // =========================
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 50) {
+
+        header.classList.add(
+          "shadow-lg",
+          "shadow-black/20"
+        );
+
+      } else {
+
+        header.classList.remove(
+          "shadow-lg",
+          "shadow-black/20"
+        );
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

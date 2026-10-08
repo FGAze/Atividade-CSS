@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Profissional | Desenvolvedor Full Stack</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-accent: #6366f1;
+            --primary-accent-hover: #4f46e5;
+            --gradient-accent: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --transition-speed: 0.3s;
+        }
+
+        [data-bs-theme="dark"] {
+            --bg-custom: #0f172a;
+            --card-bg: #1e293b;
+            --text-muted-custom: #94a3b8;
+            --border-color-custom: #334155;
+            --timeline-line: #334155;
+        }
+
+        [data-bs-theme="light"] {
+            --bg-custom: #f8fafc;
+            --card-bg: #ffffff;
+            --text-muted-custom: #64748b;
+            --border-color-custom: #e2e8f0;
+            --timeline-line: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-custom);
+            color: var(--bs-body-color);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden;
+        }
+
+        /* Classes Utilitárias Customizadas */
+        .text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-accent {
+            background: var(--gradient-accent) !important;
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-accent:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .card-custom {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color-custom);
+            border-radius: 1rem;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-accent);
+        }
+
+        /* Navbar Navbar Stylings */
+        .navbar {
+            backdrop-filter: blur(12px);
+            background-color: rgba(15, 23, 42, 0.85) !important;
+            border-bottom: 1px solid var(--border-color-custom);
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        [data-bs-theme="light"] .navbar {
+            background-color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.25rem;
+            border-radius: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+
+        .hero-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--card-bg);
+        }
+
+        /* Typing Effect Container */
+        .typing-container {
+            font-size: 1.5rem;
+            font-weight: 600;
+            min-height: 2.5rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--timeline-line);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: -2.6rem;
+            top: 0;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 0 0 4px var(--bg-custom);
+        }
+
+        /* Badges de filtro */
+        .btn-filter {
+            border-radius: 2rem;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color-custom);
+            color: var(--bs-body-color);
+            background: var(--card-bg);
+            transition: all 0.2s ease;
+        }
+
+        .btn-filter.active, .btn-filter:hover {
+            background: var(--gradient-accent);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Animações e Transições adicionais */
+        .project-item {
+            transition: all 0.4s ease;
+        }
+
+        .project-item.hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-gradient d-flex align-items-center gap-2" href="#hero">
+                <i class="bi bi-code-slash"></i> DevPortfolio
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-2 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link px-3" href="#hero">Início</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#experiência">Experiência</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contato">Contato</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center ms-lg-3">
+                    <button class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center" id="themeToggle" style="width: 40px; height: 40px;" title="Alternar Tema">
+                        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 mb-3 rounded-pill">
+                        <i class="bi bi-circle-fill text-success fs-6 me-1"></i> Disponível para projetos
+                    </span>
+                    <h1 class="display-3 fw-bold mb-3">
+                        Olá, eu sou <br>
+                        <span class="text-gradient">Lucas Silva</span>
+                    </h1>
+                    
+                    <div class="typing-container text-muted mb-4 d-flex align-items-center justify-content-center justify-content-lg-start gap-2">
+                        <span>Atuo como</span>
+                        <span class="text-gradient" id="typingText"></span>
+                    </div>
+
+                    <p class="lead mb-4 text-muted max-w-xl">
+                        Desenvolvedor Full Stack apaixonado por criar experiências digitais modernas, eficientes e escaláveis. Transformo ideias complexas em soluções elegantes de software.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#projetos" class="btn btn-accent btn-lg px-4 py-2 rounded-pill d-flex align-items-center gap-2">
+                            <i class="bi bi-briefcase"></i> Ver Projetos
+                        </a>
+                        <a href="#contato" class="btn btn-outline-secondary btn-lg px-4 py-2 rounded-pill d-flex align-items-center gap-2">
+                            <i class="bi bi-envelope"></i> Contato
+                        </a>
+                        <button onclick="baixarCV()" class="btn btn-link text-decoration-none btn-lg px-3 py-2 d-flex align-items-center gap-2">
+                            <i class="bi bi-download"></i> Baixar CV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center">
+                    <div class="hero-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Foto de Perfil" class="hero-img img-fluid shadow-lg" onerror="this.src='https://placehold.co/300x300/6366f1/ffffff?text=LS'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <div class="card-custom p-4 p-md-5">
+                        <h2 class="fw-bold mb-3">Sobre Mim</h2>
+                        <p class="text-muted">
+                            Com mais de 5 anos de experiência no mercado de tecnologia, especializei-me no desenvolvimento de aplicações web completas. Tenho paixão por código limpo, arquitetura escalável e interfaces de usuário intuitivas.
+                        </p>
+                        <p class="text-muted mb-4">
+                            Minha jornada começou com curiosidade sobre como a web funciona e evoluiu para uma carreira focada na entrega de valor real para negócios através da tecnologia moderna.
+                        </p>
+
+                        <div class="row g-3 text-center">
+                            <div class="col-4">
+                                <div class="p-3 border rounded-3 bg-body-tertiary">
+                                    <h3 class="fw-bold text-gradient mb-0">5+</h3>
+                                    <small class="text-muted">Anos Exp.</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-3 border rounded-3 bg-body-tertiary">
+                                    <h3 class="fw-bold text-gradient mb-0">40+</h3>
+                                    <small class="text-muted">Projetos</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-3 border rounded-3 bg-body-tertiary">
+                                    <h3 class="fw-bold text-gradient mb-0">25+</h3>
+                                    <small class="text-muted">Clientes</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="card-custom p-4 h-100">
+                                <i class="bi bi-lightning-charge text-gradient fs-1 mb-2"></i>
+                                <h5 class="fw-bold">Alta Performance</h5>
+                                <p class="text-muted small mb-0">Sistemas otimizados para tempo de carregamento veloz e resposta instantânea.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card-custom p-4 h-100">
+                                <i class="bi bi-shield-check text-gradient fs-1 mb-2"></i>
+                                <h5 class="fw-bold">Código Seguro</h5>
+                                <p class="text-muted small mb-0">Práticas recomendadas de segurança e proteção de dados em todas as camadas.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card-custom p-4 h-100">
+                                <i class="bi bi-phone text-gradient fs-1 mb-2"></i>
+                                <h5 class="fw-bold">Design Responsivo</h5>
+                                <p class="text-muted small mb-0">Interfaces adaptáveis perfeitamente a qualquer dispositivo ou tela.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card-custom p-4 h-100">
+                                <i class="bi bi-diagram-3 text-gradient fs-1 mb-2"></i>
+                                <h5 class="fw-bold">Escalabilidade</h5>
+                                <p class="text-muted small mb-0">Arquitetura preparada para crescer junto com a demanda da sua empresa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-body-tertiary">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <h2 class="fw-bold">Minhas <span class="text-gradient">Habilidades</span></h2>
+                <p class="text-muted">Tecnologias e ferramentas com as quais trabalho diariamente para construir soluções.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Frontend -->
+                <div class="col-md-4">
+                    <div class="card-custom p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="p-3 bg-gradient-accent rounded-3 text-white">
+                                <i class="bi bi-layout-text-window-reverse fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Frontend</h4>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>HTML5 / CSS3 / JavaScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>React.js / Next.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Bootstrap / Tailwind CSS</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="col-md-4">
+                    <div class="card-custom p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="p-3 bg-gradient-accent rounded-3 text-white">
+                                <i class="bi bi-server fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Backend</h4>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Node.js / Express</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Python / Django</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>PostgreSQL / MongoDB</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ferramentas & DevOps -->
+                <div class="col-md-4">
+                    <div class="card-custom p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="p-3 bg-gradient-accent rounded-3 text-white">
+                                <i class="bi bi-tools fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Ferramentas</h4>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Git / GitHub</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Docker / CI/CD</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Figma / UI Design</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-gradient-accent" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Projetos <span class="text-gradient">Em Destaque</span></h2>
+                <p class="text-muted">Confira alguns dos trabalhos mais recentes que desenvolvi.</p>
+
+                <!-- Filtros -->
+                <div class="d-flex justify-content-center flex-wrap gap-2 mt-4" id="projectFilters">
+                    <button class="btn btn-filter active" data-filter="all">Todos</button>
+                    <button class="btn btn-filter" data-filter="web">Web App</button>
+                    <button class="btn btn-filter" data-filter="mobile">Mobile</button>
+                    <button class="btn btn-filter" data-filter="ui">UI/UX</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="projectsContainer">
+                <!-- Projeto 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="web">
+                    <div class="card-custom h-100 overflow-hidden d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="Dashboard Financeiro" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="mb-2">
+                                <span class="badge bg-primary-subtle text-primary">Web</span>
+                                <span class="badge bg-secondary-subtle text-secondary">React</span>
+                            </div>
+                            <h5 class="card-title fw-bold">Dashboard SaaS Financeiro</h5>
+                            <p class="card-text text-muted small flex-grow-1">Plataforma de gestão financeira com gráficos em tempo real e relatórios preditivos.</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 mt-3 rounded-pill" onclick="abrirModalProjeto('Dashboard SaaS Financeiro', 'Uma plataforma completa para análise financeira corporativa com gráficos interativos usando Chart.js, autenticação via JWT e integração com gateway de pagamento Stripe.', 'React, Node.js, Express, MongoDB', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600')">
+                                Detalhes do Projeto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="mobile">
+                    <div class="card-custom h-100 overflow-hidden d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="App de Fitness" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="mb-2">
+                                <span class="badge bg-success-subtle text-success">Mobile</span>
+                                <span class="badge bg-secondary-subtle text-secondary">React Native</span>
+                            </div>
+                            <h5 class="card-title fw-bold">App de Treinos e Nutrição</h5>
+                            <p class="card-text text-muted small flex-grow-1">Aplicativo mobile para acompanhamento de rotinas de exercícios e plano alimentar.</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 mt-3 rounded-pill" onclick="abrirModalProjeto('App de Treinos', 'Aplicativo focado em saúde e bem-estar, oferecendo rotinas personalizadas com vídeos demonstrativos e contador de calorias inteligente.', 'React Native, Firebase, Expo', 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600')">
+                                Detalhes do Projeto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="web">
+                    <div class="card-custom h-100 overflow-hidden d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="E-commerce" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="mb-2">
+                                <span class="badge bg-primary-subtle text-primary">Web</span>
+                                <span class="badge bg-secondary-subtle text-secondary">Next.js</span>
+                            </div>
+                            <h5 class="card-title fw-bold">E-Commerce Moderno</h5>
+                            <p class="card-text text-muted small flex-grow-1">Loja virtual com carrinho em tempo real, checkout integrado e busca otimizada.</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 mt-3 rounded-pill" onclick="abrirModalProjeto('E-Commerce Moderno', 'Plataforma e-commerce completa otimizada para SEO, com busca instantânea via Algolia e painel administrativo integrado.', 'Next.js, Tailwind CSS, PostgreSQL', 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=600')">
+                                Detalhes do Projeto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 4 -->
+                <div class="col-md-6 col-lg-4 project-item" data-category="ui">
+                    <div class="card-custom h-100 overflow-hidden d-flex flex-column">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="Design System" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="mb-2">
+                                <span class="badge bg-info-subtle text-info">UI/UX</span>
+                                <span class="badge bg-secondary-subtle text-secondary">Figma</span>
+                            </div>
+                            <h5 class="card-title fw-bold">Design System Corporativo</h5>
+                            <p class="card-text text-muted small flex-grow-1">Biblioteca de componentes reusáveis e guia de estilo completo para equipe de produto.</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 mt-3 rounded-pill" onclick="abrirModalProjeto('Design System Corporativo', 'Criação de tokens de design, acessibilidade WCAG, guia de tipografia e biblioteca de componentes responsivos no Figma.', 'Figma, Storybook, Tokens CSS', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600')">
+                                Detalhes do Projeto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiência" class="py-5 bg-body-tertiary">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <h2 class="fw-bold">Trajetória e <span class="text-gradient">Experiência</span></h2>
+                <p class="text-muted">Minha caminhada profissional e formação acadêmica.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <!-- Experiência 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-briefcase-fill"></i>
+                            </div>
+                            <div class="card-custom p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="fw-bold mb-0">Desenvolvedor Full Stack Senior</h5>
+                                    <span class="badge bg-primary-subtle text-primary">2022 - Atual</span>
+                                </div>
+                                <h6 class="text-gradient mb-2">Tech Solutions Inc.</h6>
+                                <p class="text-muted small mb-0">
+                                    Liderança técnica na arquitetura de microsserviços, mentoria de desenvolvedores juniores e otimização de performance de aplicações de grande porte.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Experiência 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-briefcase-fill"></i>
+                            </div>
+                            <div class="card-custom p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="fw-bold mb-0">Desenvolvedor Frontend Pleno</h5>
+                                    <span class="badge bg-secondary-subtle text-secondary">2020 - 2022</span>
+                                </div>
+                                <h6 class="text-gradient mb-2">Digital Lab Studio</h6>
+                                <p class="text-muted small mb-0">
+                                    Desenvolvimento de interfaces responsivas utilizando React, Next.js e integração com APIs RESTful para clientes internacionais.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Formação Acadêmica -->
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </div>
+                            <div class="card-custom p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="fw-bold mb-0">Bacharelado em Ciência da Computação</h5>
+                                    <span class="badge bg-info-subtle text-info">2016 - 2020</span>
+                                </div>
+                                <h6 class="text-gradient mb-2">Universidade Federal de Tecnologia</h6>
+                                <p class="text-muted small mb-0">
+                                    Formação sólida com foco em algoritmos, estrutura de dados, engenharia de software e inteligência artificial.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-5">
+        <div class="container py-4">
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <h2 class="fw-bold mb-3">Vamos construir algo <span class="text-gradient">incrível juntos?</span></h2>
+                    <p class="text-muted mb-4">
+                        Estou sempre aberto a novas oportunidades, colaborações ou apenas uma boa conversa sobre tecnologia. Entre em contato!
+                    </p>
+
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="p-3 bg-gradient-accent rounded-circle text-white">
+                                <i class="bi bi-envelope-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">E-mail</small>
+                                <span class="fw-semibold">lucas.silva@exemplo.com</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="p-3 bg-gradient-accent rounded-circle text-white">
+                                <i class="bi bi-telephone-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Telefone / WhatsApp</small>
+                                <span class="fw-semibold">+55 (11) 98765-4321</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="p-3 bg-gradient-accent rounded-circle text-white">
+                                <i class="bi bi-geo-alt-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block">Localização</small>
+                                <span class="fw-semibold">São Paulo, SP - Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociais -->
+                    <div class="d-flex gap-2">
+                        <a href="https://github.com" target="_blank" class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                            <i class="bi bi-github fs-5"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                            <i class="bi bi-linkedin fs-5"></i>
+                        </a>
+                        <a href="https://wa.me/5511987654321" target="_blank" class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                            <i class="bi bi-whatsapp fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card-custom p-4 p-md-5">
+                        <h4 class="fw-bold mb-4">Envie uma mensagem</h4>
+                        
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nome" class="form-label">Seu Nome</label>
+                                    <input type="text" class="form-control" id="nome" required placeholder="Ex: Maria Souza">
+                                    <div class="invalid-feedback">Por favor, informe seu nome.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Seu E-mail</label>
+                                    <input type="email" class="form-control" id="email" required placeholder="nome@exemplo.com">
+                                    <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="assunto" class="form-label">Assunto</label>
+                                    <input type="text" class="form-control" id="assunto" required placeholder="Assunto do contato">
+                                    <div class="invalid-feedback">Por favor, informe o assunto.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="mensagem" class="form-label">Mensagem</label>
+                                    <textarea class="form-control" id="mensagem" rows="4" required placeholder="Escreva sua mensagem aqui..."></textarea>
+                                    <div class="invalid-feedback">Escreva uma mensagem antes de enviar.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-accent w-100 py-3 rounded-3 d-flex align-items-center justify-content-center gap-2">
+                                        <i class="bi bi-send-fill"></i> Enviar Mensagem
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top border-secondary-subtle">
+        <div class="container text-center">
+            <p class="mb-0 text-muted small">
+                © <span id="currentYear"></span> Lucas Silva. Todos os direitos reservados. Desenvolvido com Bootstrap 5.
+            </p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content card-custom border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="modalTitle">Título do Projeto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <img id="modalImage" src="" class="img-fluid rounded-3 mb-3 w-100" style="max-height: 350px; object-fit: cover;" alt="Projeto">
+                    <p class="text-muted mb-3" id="modalDescription">Descrição detalhada do projeto.</p>
+                    
+                    <div class="mb-3">
+                        <strong class="d-block mb-1">Tecnologias Utilizadas:</strong>
+                        <span class="badge bg-gradient-accent p-2" id="modalTechs">Stack</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Fechar</button>
+                    <a href="https://github.com" target="_blank" class="btn btn-accent rounded-pill d-flex align-items-center gap-2">
+                        <i class="bi bi-github"></i> Ver Código
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle com Popper CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Atualiza ano do rodapé
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // 1. Gerenciamento do Tema Dark/Light com Persistência
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const htmlElement = document.documentElement;
+
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+
+            function setTheme(theme) {
+                htmlElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+                
+                if (theme === 'dark') {
+                    themeIcon.className = 'bi bi-sun-fill';
+                } else {
+                    themeIcon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+
+            // 2. Efeito de Digitação Dinâmico (Typing Effect)
+            const phrases = ['Desenvolvedor Full Stack', 'Engenheiro de Software', 'Especialista Frontend', 'Criador de Soluções Web'];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingText = document.getElementById('typingText');
+
+            function typeEffect() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    typeSpeed = 2000; // Pausa no final da palavra
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(typeEffect, typeSpeed);
+            }
+
+            typeEffect();
+
+            // 3. Filtros da Seção de Projetos
+            const filterBtns = document.querySelectorAll('#projectFilters .btn-filter');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hide');
+                        } else {
+                            item.classList.add('hide');
+                        }
+                    });
+                });
+            });
+
+            // 4. Validação do Formulário de Contato Bootstrap
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (contactForm.checkValidity()) {
+                    // Feedback simulado para o usuário sem utilizar alert()
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnContent = submitBtn.innerHTML;
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+
+                    setTimeout(() => {
+                        submitBtn.className = 'btn btn-success w-100 py-3 rounded-3';
+                        submitBtn.innerHTML = `<i class="bi bi-check-circle-fill"></i> Mensagem Enviada com Sucesso!`;
+                        contactForm.reset();
+                        contactForm.classList.remove('was-validated');
+
+                        setTimeout(() => {
+                            submitBtn.className = 'btn btn-accent w-100 py-3 rounded-3 d-flex align-items-center justify-content-center gap-2';
+                            submitBtn.innerHTML = originalBtnContent;
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    }, 1500);
+                } else {
+                    contactForm.classList.add('was-validated');
+                }
+            }, false);
+        });
+
+        // 5. Função para Modal Interativo de Projetos
+        function abrirModalProjeto(titulo, descricao, tecnologias, imagemUrl) {
+            document.getElementById('modalTitle').textContent = titulo;
+            document.getElementById('modalDescription').textContent = descricao;
+            document.getElementById('modalTechs').textContent = tecnologias;
+            document.getElementById('modalImage').src = imagemUrl;
+
+            const modal = new bootstrap.Modal(document.getElementById('projectModal'));
+            modal.show();
+        }
+
+        // 6. Função de Download do CV (Simulação)
+        function baixarCV() {
+            // Em ambiente real, colocaria o link direto para o PDF
+            const dummyLink = document.createElement('a');
+            dummyLink.href = 'data:text/plain;charset=utf-8,Curriculo_Lucas_Silva';
+            dummyLink.download = 'Curriculo_Lucas_Silva.txt';
+            document.body.appendChild(dummyLink);
+            dummyLink.click();
+            document.body.removeChild(dummyLink);
+        }
+    </script>
+</body>
+</html>

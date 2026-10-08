@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio profissional de desenvolvedor.">
+  <title>Seu Nome | Portfólio</title>
+
+  <style>
+    /* =========================
+       RESET
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       VARIÁVEIS
+    ========================== */
+    :root {
+      --background: #0a0a0f;
+      --surface: #111118;
+      --surface-light: #181820;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f5f5f5;
+      --muted: #9b9ba7;
+      --primary: #7c5cff;
+      --primary-light: #9b83ff;
+      --gradient: linear-gradient(135deg, #7c5cff, #b14cff);
+      --max-width: 1150px;
+      --radius: 18px;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      border-color: var(--border);
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--primary-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 0;
+      cursor: pointer;
+      font-size: 1.6rem;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 76px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: #7c5cff;
+      opacity: 0.12;
+      filter: blur(130px);
+      border-radius: 50%;
+      top: 10%;
+      right: -150px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      color: var(--primary-light);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .button-primary {
+      background: var(--gradient);
+      border: none;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(124, 92, 255, 0.25);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+    }
+
+    .button-secondary:hover {
+      background: var(--surface-light);
+    }
+
+    /* =========================
+       SEÇÕES
+    ========================== */
+    section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 600px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       SOBRE
+    ========================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* =========================
+       HABILIDADES
+    ========================== */
+    .skills {
+      background: #0d0d13;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: var(--radius);
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124, 92, 255, 0.4);
+    }
+
+    .skill-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(124, 92, 255, 0.12);
+      color: var(--primary-light);
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       PROJETOS
+    ========================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124, 92, 255, 0.35);
+    }
+
+    .project-image {
+      height: 250px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(177, 76, 255, 0.7), transparent 35%),
+        linear-gradient(135deg, #16122a, #0e0e16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.12);
+      font-size: 4rem;
+      font-weight: 900;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #bbb;
+      font-size: 0.72rem;
+    }
+
+    .project-link {
+      color: var(--primary-light);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* =========================
+       EXPERIÊNCIA
+    ========================== */
+    .timeline {
+      max-width: 800px;
+      border-left: 1px solid var(--border);
+      margin-left: 8px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 45px 35px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(124, 92, 255, 0.1);
+    }
+
+    .timeline-date {
+      color: var(--primary-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 3px;
+    }
+
+    .timeline-company {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       CONTATO
+    ========================== */
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      background:
+        radial-gradient(circle at center, rgba(124, 92, 255, 0.16), transparent 55%),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 80px 30px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      color: var(--primary-light);
+      font-weight: 700;
+      margin-top: 20px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-content p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: white;
+    }
+
+    /* =========================
+       ANIMAÇÕES
+    ========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVIDADE
+    ========================== */
+    @media (max-width: 800px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        background: rgba(17, 17, 24, 0.98);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        flex-direction: column;
+        gap: 18px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .skills-grid,
+      .about-info {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container navbar">
+      <a href="#inicio" class="logo">Seu<span>Nome.</span></a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="hero-label">Olá, eu sou</div>
+
+          <h1>
+            Seu<br>
+            <span>Nome.</span>
+          </h1>
+
+          <p class="hero-description">
+            Desenvolvedor apaixonado por criar experiências digitais
+            modernas, eficientes e visualmente impactantes.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projetos" class="button button-primary">
+              Ver projetos
+            </a>
+
+            <a href="#contato" class="button button-secondary">
+              Entre em contato
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">01 — Sobre</div>
+          <h2 class="section-title">Quem sou eu</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-text reveal">
+            <p>
+              Sou desenvolvedor com experiência na criação de aplicações
+              web, interfaces responsivas e soluções digitais focadas
+              em performance e experiência do usuário.
+            </p>
+
+            <p>
+              Meu objetivo é transformar ideias em produtos digitais
+              simples, funcionais e capazes de gerar resultados reais.
+            </p>
+
+            <p>
+              Gosto de trabalhar em projetos que combinam tecnologia,
+              design e resolução de problemas.
+            </p>
+          </div>
+
+          <div class="about-info reveal">
+            <div class="info-card">
+              <strong>5+</strong>
+              <span>Anos de experiência</span>
+            </div>
+
+            <div class="info-card">
+              <strong>40+</strong>
+              <span>Projetos realizados</span>
+            </div>
+
+            <div class="info-card">
+              <strong>20+</strong>
+              <span>Clientes atendidos</span>
+            </div>
+
+            <div class="info-card">
+              <strong>100%</strong>
+              <span>Dedicação aos projetos</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="skills">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">02 — Habilidades</div>
+          <h2 class="section-title">O que eu faço</h2>
+          <p class="section-description">
+            Algumas das principais áreas em que atuo profissionalmente.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">&lt;/&gt;</div>
+            <h3>Desenvolvimento Web</h3>
+            <p>
+              Criação de sites e aplicações web modernas, rápidas e
+              responsivas.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">◆</div>
+            <h3>UI / UX</h3>
+            <p>
+              Interfaces intuitivas e experiências digitais pensadas
+              para o usuário.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">JS</div>
+            <h3>JavaScript</h3>
+            <p>
+              Desenvolvimento de interações e funcionalidades
+              utilizando JavaScript moderno.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">API</div>
+            <h3>Integrações</h3>
+            <p>
+              Integração entre aplicações, APIs e serviços externos.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">DB</div>
+            <h3>Banco de Dados</h3>
+            <p>
+              Modelagem e desenvolvimento de soluções para armazenamento
+              e gerenciamento de dados.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>
+              Otimização de aplicações buscando velocidade, estabilidade
+              e boa experiência.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROJETOS -->
+    <section id="projetos">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">03 — Projetos</div>
+          <h2 class="section-title">Trabalhos selecionados</h2>
+          <p class="section-description">
+            Alguns projetos que representam meu trabalho e minhas
+            principais habilidades.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <div class="project-image">01</div>
+
+            <div class="project-content">
+              <h3>Dashboard Analytics</h3>
+
+              <p>
+                Dashboard moderno para visualização de métricas,
+                indicadores e informações de negócio.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <a href="#" class="project-link">
+                Ver projeto →
+              </a>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-image">02</div>
+
+            <div class="project-content">
+              <h3>Landing Page</h3>
+
+              <p>
+                Página de conversão desenvolvida para apresentação
+                de produto e geração de leads.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+
+              <a href="#" class="project-link">
+                Ver projeto →
+              </a>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-image">03</div>
+
+            <div class="project-content">
+              <h3>E-commerce</h3>
+
+              <p>
+                Interface de loja virtual com catálogo de produtos
+                e experiência responsiva.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Frontend</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">API</span>
+              </div>
+
+              <a href="#" class="project-link">
+                Ver projeto →
+              </a>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-image">04</div>
+
+            <div class="project-content">
+              <h3>Sistema Web</h3>
+
+              <p>
+                Sistema web desenvolvido para automatizar processos
+                e centralizar informações.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Web App</span>
+                <span class="tag">API</span>
+                <span class="tag">Database</span>
+              </div>
+
+              <a href="#" class="project-link">
+                Ver projeto →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="skills">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">04 — Experiência</div>
+          <h2 class="section-title">Minha trajetória</h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2024 — Atualmente</div>
+            <h3>Desenvolvedor Full Stack</h3>
+            <div class="timeline-company">Empresa / Projeto</div>
+
+            <p>
+              Desenvolvimento de aplicações web, APIs e soluções
+              digitais para diferentes necessidades de negócio.
+            </p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2022 — 2024</div>
+            <h3>Desenvolvedor Front-end</h3>
+            <div class="timeline-company">Empresa / Projeto</div>
+
+            <p>
+              Desenvolvimento de interfaces responsivas e criação
+              de experiências digitais focadas no usuário.
+            </p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2020 — 2022</div>
+            <h3>Desenvolvedor Web</h3>
+            <div class="timeline-company">Empresa / Projeto</div>
+
+            <p>
+              Criação e manutenção de sites, sistemas internos e
+              soluções web personalizadas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact">
+      <div class="container">
+
+        <div class="contact-box reveal">
+          <div class="section-label">05 — Contato</div>
+
+          <h2>Vamos trabalhar juntos?</h2>
+
+          <p>
+            Tem um projeto em mente ou gostaria de conversar sobre
+            uma oportunidade? Entre em contato comigo.
+          </p>
+
+          <a
+            href="mailto:seuemail@email.com"
+            class="button button-primary"
+          >
+            Enviar mensagem
+          </a>
+
+          <br>
+
+          <a
+            href="mailto:seuemail@email.com"
+            class="contact-email"
+          >
+            seuemail@email.com
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+
+      <p>
+        © <span id="year"></span> Seu Nome. Todos os direitos reservados.
+      </p>
+
+      <div class="social-links">
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Instagram</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    // =========================
+    // MENU MOBILE
+    // =========================
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+
+    // =========================
+    // HEADER AO ROLAR
+    // =========================
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+
+    // =========================
+    // ANIMAÇÃO DE ELEMENTOS
+    // =========================
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+
+    // =========================
+    // ANO AUTOMÁTICO
+    // =========================
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

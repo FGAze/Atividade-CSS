@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Silva | Desenvolvedora Front-end</title>
+  <meta name="description" content="Portfólio profissional de Ana Silva, desenvolvedora front-end.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">Ana<span>.</span></a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" class="nav-link active">Início</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+        <li><a href="#projetos" class="nav-link">Projetos</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-greeting">Olá, eu sou</p>
+          <h1>Ana Silva</h1>
+          <h2>Sou <span class="typed" id="typed"></span><span class="cursor">|</span></h2>
+          <p class="hero-desc">
+            Crio interfaces modernas, acessíveis e performáticas, transformando ideias em
+            experiências digitais memoráveis.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+            <a href="#contato" class="btn btn-outline">Fale comigo</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="avatar">AS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <h2 class="section-title reveal">Sobre mim</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Sou desenvolvedora front-end com mais de 5 anos de experiência construindo
+              aplicações web para startups e grandes empresas. Tenho foco em código limpo,
+              design responsivo e boas práticas de acessibilidade.
+            </p>
+            <p>
+              Fora do código, gosto de fotografia, café especial e de contribuir com
+              projetos open source.
+            </p>
+            <a href="#" class="btn btn-primary">Baixar currículo</a>
+          </div>
+          <div class="stats reveal">
+            <div class="stat"><span class="stat-number" data-target="5">0</span><p>Anos de experiência</p></div>
+            <div class="stat"><span class="stat-number" data-target="40">0</span><p>Projetos entregues</p></div>
+            <div class="stat"><span class="stat-number" data-target="25">0</span><p>Clientes satisfeitos</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="section section-alt" id="habilidades">
+      <div class="container">
+        <h2 class="section-title reveal">Habilidades</h2>
+        <div class="skills reveal">
+          <div class="skill"><div class="skill-info"><span>HTML5</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
+          <div class="skill"><div class="skill-info"><span>CSS3</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+          <div class="skill"><div class="skill-info"><span>JavaScript</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+          <div class="skill"><div class="skill-info"><span>React</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+          <div class="skill"><div class="skill-info"><span>UI/UX Design</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="section" id="projetos">
+      <div class="container">
+        <h2 class="section-title reveal">Projetos</h2>
+
+        <div class="filters reveal">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="app">Apps</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="web">
+            <div class="project-thumb" style="--c1:#6366f1;--c2:#8b5cf6">🛒</div>
+            <div class="project-body">
+              <h3>E-commerce Moderno</h3>
+              <p>Loja virtual com carrinho, filtros dinâmicos e checkout otimizado.</p>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+              <div class="project-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="app">
+            <div class="project-thumb" style="--c1:#06b6d4;--c2:#3b82f6">✅</div>
+            <div class="project-body">
+              <h3>App de Tarefas</h3>
+              <p>Gerenciador de tarefas com arrastar e soltar e armazenamento local.</p>
+              <div class="tags"><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="project-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-thumb" style="--c1:#f59e0b;--c2:#ef4444">🎨</div>
+            <div class="project-body">
+              <h3>Identidade Visual</h3>
+              <p>Sistema de design completo para uma startup de tecnologia.</p>
+              <div class="tags"><span>Figma</span><span>Design System</span></div>
+              <div class="project-links"><a href="#">Ver caso</a></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="web">
+            <div class="project-thumb" style="--c1:#10b981;--c2:#059669">📊</div>
+            <div class="project-body">
+              <h3>Dashboard Analítico</h3>
+              <p>Painel administrativo responsivo com gráficos interativos.</p>
+              <div class="tags"><span>React</span><span>Chart.js</span></div>
+              <div class="project-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="app">
+            <div class="project-thumb" style="--c1:#ec4899;--c2:#8b5cf6">🌦️</div>
+            <div class="project-body">
+              <h3>App de Clima</h3>
+              <p>Previsão do tempo em tempo real consumindo API pública.</p>
+              <div class="tags"><span>JS</span><span>API REST</span></div>
+              <div class="project-links"><a href="#">Demo</a><a href="#">Código</a></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-thumb" style="--c1:#14b8a6;--c2:#0ea5e9">📱</div>
+            <div class="project-body">
+              <h3>Redesign Mobile</h3>
+              <p>Reformulação da experiência mobile de um app bancário.</p>
+              <div class="tags"><span>UX</span><span>Prototipagem</span></div>
+              <div class="project-links"><a href="#">Ver caso</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section section-alt" id="contato">
+      <div class="container">
+        <h2 class="section-title reveal">Contato</h2>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Vamos trabalhar juntos?</h3>
+            <p>Estou disponível para projetos freelance e oportunidades em tempo integral.</p>
+            <ul>
+              <li>📧 ana.silva@email.com</li>
+              <li>📍 São Paulo, Brasil</li>
+              <li>💼 linkedin.com/in/anasilva</li>
+            </ul>
+          </div>
+
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="nome" placeholder="Seu nome">
+              <small class="error"></small>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Seu e-mail">
+              <small class="error"></small>
+            </div>
+            <div class="form-group">
+              <textarea id="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
+              <small class="error"></small>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            <p class="form-success" id="formSuccess">Mensagem enviada com sucesso! ✔</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ana Silva. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
